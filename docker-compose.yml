@@ -1,0 +1,17 @@
+version: '3.8'
+
+services:
+  ftp_server:
+    # image: oven/bun:debian
+    build:
+      context: .
+      dockerfile: dockerfile
+    container_name: bun_ftp_server
+    working_dir: /app
+    volumes:
+      - type: bind
+        source: ./app
+        target: /app
+    ports:
+      - "4000:3000"
+    tty: true
